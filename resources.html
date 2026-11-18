@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklists and FAQs — PriorPath Auth Center</title>
+<meta name="description" content="Build a documentation checklist for a service, track your progress, search a plain word glossary, and read prior authorization FAQs.">
+<meta property="og:title" content="PriorPath Auth Center — Checklists and FAQs">
+<meta property="og:description" content="Documentation checklist builder, glossary, and FAQs for prior authorization work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brittanynation.github.io/priorpath-auth-center/resources.html">
+<meta property="og:image" content="https://brittanynation.github.io/priorpath-auth-center/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="index.html">Prior<span>Path</span> Auth Center</a>
+  <nav class="main">
+    <a href="index.html">Guides</a>
+    <a href="tracker.html">Request Tracker</a>
+    <a href="resources.html" aria-current="page">Checklists and FAQs</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <h1>Checklists, glossary, and FAQs</h1>
+  <img src="images/p8192000.jpg" alt="Healthcare worker holding a tablet and reviewing a checklist" style="width:100%;height:220px;object-fit:cover;border-radius:14px">
+
+  <h2>Documentation checklist builder</h2>
+  <p>Choose a service and the checklist for that service appears. Check items off as they enter the packet; progress saves in your browser for each service, and a finished checklist can jump straight to the tracker.</p>
+  <div class="toolbar">
+    <select id="serviceSelect" aria-label="Choose a service for the checklist"></select>
+  </div>
+  <div class="progress" aria-hidden="true"><div id="progressBar"></div></div>
+  <p class="count" id="progressText"></p>
+  <div id="checklistBox"></div>
+  <p><button class="btn ghost" id="resetChecklist" type="button">Reset this checklist</button>
+  <a class="btn" id="toTracker" href="tracker.html" style="display:none;text-decoration:none">Checklist complete — start the request</a></p>
+
+  <h2>Plain word glossary</h2>
+  <div class="toolbar">
+    <input type="search" id="glossarySearch" placeholder="Search terms, for example appeal or eligibility" aria-label="Search the glossary">
+  </div>
+  <p class="count" id="glossaryCount"></p>
+  <div id="glossaryBox"></div>
+  <p id="glossaryEmpty" class="success" hidden>No glossary term matches that search.</p>
+
+  <h2>Frequently asked questions</h2>
+  <div id="faqBox"></div>
+
+  <h2>The PriorPath Letter</h2>
+  <p>One short monthly email with a new guide and one documentation tip. Sample signup only; addresses are stored in your browser for the duplicate check.</p>
+  <form id="letterForm" novalidate>
+    <label for="letterEmail">Email address</label>
+    <input id="letterEmail" type="email" autocomplete="email">
+    <div class="error" id="eLetter"></div>
+    <p><button class="btn" type="submit">Sign up for the letter</button></p>
+  </form>
+  <div id="letterMsg"></div>
+</main>
+
+<footer>
+  <p>PriorPath Auth Center is an original fictional portfolio concept by Brittany Nation. Checklists, glossary progress, and letter signups are stored only in your browser on this static demo.</p>
+  <p><a href="index.html">Guides</a> · <a href="tracker.html">Request Tracker</a></p>
+</footer>
+<script src="resources.js"></script>
+</body>
+</html>
