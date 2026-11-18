@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Tracker — PriorPath Auth Center</title>
+<meta name="description" content="Start and track a sample prior authorization request: validated form, a real PA reference number, status filters, notes, and cancellation, all in your browser.">
+<meta property="og:title" content="PriorPath Auth Center — Request Tracker">
+<meta property="og:description" content="Start and track a sample prior authorization request with a generated PA reference number.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brittanynation.github.io/priorpath-auth-center/tracker.html">
+<meta property="og:image" content="https://brittanynation.github.io/priorpath-auth-center/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="index.html">Prior<span>Path</span> Auth Center</a>
+  <nav class="main">
+    <a href="index.html">Guides</a>
+    <a href="tracker.html" aria-current="page">Request Tracker</a>
+    <a href="resources.html">Checklists and FAQs</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <h1>Request Tracker</h1>
+  <p>Start a sample authorization request below. A complete form earns a PA reference number, and the request is saved in your browser so you can look it up, add follow up notes, or cancel it. Two sample requests are loaded the first time so the tracker is easy to explore; they are labeled Sample.</p>
+  <img src="images/p7682205.jpg" alt="Support worker with a headset helping by phone and computer" style="width:100%;height:220px;object-fit:cover;border-radius:14px">
+
+  <h2>New sample request</h2>
+  <form id="requestForm" novalidate>
+    <label for="fName">Member full name</label>
+    <input id="fName" type="text" autocomplete="name">
+    <div class="error" id="eName"></div>
+
+    <label for="fEmail">Contact email</label>
+    <input id="fEmail" type="email" autocomplete="email">
+    <div class="error" id="eEmail"></div>
+
+    <label for="fPayer">Payer</label>
+    <select id="fPayer">
+      <option value="">Choose a payer</option>
+      <option>Blue River Health Plan</option>
+      <option>Summit National Insurance</option>
+      <option>Prairie Care Alliance</option>
+      <option>Harbor Mutual Health</option>
+    </select>
+    <div class="error" id="ePayer"></div>
+
+    <label for="fService">Service needing authorization</label>
+    <select id="fService">
+      <option value="">Choose a service</option>
+      <option>MRI imaging</option>
+      <option>Physical therapy visits</option>
+      <option>Specialty office visit</option>
+      <option>Outpatient surgery</option>
+      <option>Home health visits</option>
+      <option>Durable medical equipment</option>
+    </select>
+    <div class="error" id="eService"></div>
+
+    <label for="fDate">Planned date of service</label>
+    <input id="fDate" type="date">
+    <div class="error" id="eDate"></div>
+
+    <label for="fUrgency">Urgency</label>
+    <select id="fUrgency">
+      <option>Standard</option>
+      <option>Urgent</option>
+    </select>
+
+    <label for="fNotes">Clinical summary (at least 20 characters)</label>
+    <textarea id="fNotes" rows="4"></textarea>
+    <div class="error" id="eNotes"></div>
+
+    <p><button class="btn" type="submit">Submit sample request</button></p>
+  </form>
+  <div id="confirmBox"></div>
+
+  <h2>Your requests</h2>
+  <div class="chips" id="statusChips" role="group" aria-label="Filter requests by status"></div>
+  <div class="toolbar">
+    <input type="search" id="lookupSearch" placeholder="Look up by PA reference, name, or service" aria-label="Look up a request">
+  </div>
+  <p class="count" id="reqCount"></p>
+  <div class="grid" id="requestGrid"></div>
+  <p id="reqEmpty" class="success" hidden>No requests match. Try a different status or a shorter lookup word.</p>
+</main>
+
+<dialog id="detailDialog">
+  <h3 id="dTitle"></h3>
+  <p id="dMeta"></p>
+  <p id="dSummary"></p>
+  <h4 class="sans">Case notes</h4>
+  <ul id="dNotes"></ul>
+  <label for="noteText" class="sans" style="font-weight:bold;font-size:.88rem">Add a follow up note</label>
+  <textarea id="noteText" rows="3" style="width:100%;padding:10px;border:1px solid #D8E2DC;border-radius:8px"></textarea>
+  <div class="error" id="eNote"></div>
+  <p>
+    <button class="btn" id="addNoteBtn" type="button">Add note</button>
+    <button class="btn alt" id="advanceBtn" type="button">Move status forward</button>
+    <button class="btn ghost" id="cancelBtn" type="button">Cancel request</button>
+    <button class="btn ghost" id="closeDetail" type="button">Close</button>
+  </p>
+  <p class="small" id="dMsg"></p>
+</dialog>
+
+<footer>
+  <p>PriorPath Auth Center is an original fictional portfolio concept by Brittany Nation. Sample requests are stored only in your browser on this static demo; no real health information should be entered.</p>
+  <p><a href="index.html">Guides</a> · <a href="resources.html">Checklists and FAQs</a></p>
+</footer>
+<script src="tracker.js"></script>
+</body>
+</html>
